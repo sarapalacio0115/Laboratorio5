@@ -45,7 +45,7 @@ const inventario = [
   { nombre: "Pantalón", precio: 35 }
 ];
 
-let producto = prompt("¿Qué producto buscas? ").toLowerCase;
+let producto = prompt("¿Qué producto buscas? ").toUpperCase();
 
 if (producto === "Camisa") {
   console.log("Precio: $20");
@@ -110,4 +110,38 @@ console.log("El contador arrojó este número de palabras:", contarPalabras(cont
 
 // 7.
 
+function retirarDinero() {
+  let saldo = Number(prompt("¿Cuál es tu saldo actual?: "));
+  let monto = Number(prompt("¿Cuánto deseas retirar?: "));
+
+  if (monto <= saldo) {
+    saldo -= monto;
+    console.log("¡Muy bien! Este es el saldo actual:", saldo);
+  } else {
+    console.log("Fondos insuficientes.");
+  }
+}
+
+retirarDinero();
+
 // 8.
+
+function convertirMoneda() {
+  let monto = Number(prompt("Ingresa el dinero que deseas convertir de COP$: "));
+  let monedaDestino = prompt("¿Deseas cambias 'USD' o 'EUR'? : ").toUpperCase();
+
+  let resultado;
+
+  if (monedaDestino === "USD") {
+    resultado = monto / 5000; 
+  } else if (monedaDestino === "EUR") {
+    resultado = monto / 5500; 
+  } else {
+    console.log("Esa acción no es válida, intenta de nuevo.");
+    return;
+  }
+
+  console.log(`Tu resultado es el siguiente : ${resultado.toFixed(2)} ${monedaDestino}`);
+}
+
+convertirMoneda();
